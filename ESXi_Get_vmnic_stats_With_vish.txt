@@ -1,0 +1,90 @@
+#Get all esxi vmnic info and neck it down to only showing count for out of buffer ( rx_no_buff )
+vsish -e ls /net/pNics | while read nics; do echo -n $nics; vsish -e cat /net/pNics/${nics}stats; done | grep rx_no
+
+#Get all esxi vmnic info
+vsish -e ls /net/pNics | while read nics; do echo -n $nics; vsish -e cat /net/pNics/${nics}stats; done
+
+#Get all esxi vmnic info but better
+vsish -e ls /net/pNics | while read nics; do echo -n $nics; vsish -e cat /net/pNics/${nics}stats; done | less
+
+#Example Output
+
+vmnic0/device {
+   -- General Statistics:
+   Rx Packets:0
+   Tx Packets:0
+   Rx Bytes:0
+   Tx Bytes:0
+   Rx Errors:0
+   Tx Errors:0
+   Rx Dropped:0
+   Tx Dropped:0
+   Rx Multicast:0
+   Rx Broadcast:0
+   Tx Multicast:0
+   Tx Broadcast:0
+   Collisions:0
+   Rx Length Errors:0
+   Rx Over Errors:0
+   Rx CRC Errors:0
+   Rx Frame Errors:0
+   Rx Fifo Errors:0
+   Rx Missed Errors:0
+   Tx Aborted Errors:0
+   Tx Carrier Errors:0
+   Tx Fifo Errors:0
+   Tx Heartbeat Errors:0
+   Tx Window Errors:0
+   Module Interface Rx packets:0
+   Module Interface Tx packets:0
+   Module Interface Rx dropped:0
+   Module Interface Tx dropped:0
+   -- Driver Specific Statistics:
+tx_frames_ok: 0
+tx_unicast_frames_ok: 0
+tx_multicast_frames_ok: 0
+tx_broadcast_frames_ok: 0
+tx_bytes_ok: 0
+tx_unicast_bytes_ok: 0
+tx_multicast_bytes_ok: 0
+tx_broadcast_bytes_ok: 0
+tx_drops: 0
+tx_errors: 0
+tx_tso: 0
+rx_frames_ok: 0
+rx_frames_total: 0
+rx_unicast_frames_ok: 0
+rx_multicast_frames_ok: 0
+rx_broadcast_frames_ok: 0
+rx_bytes_ok: 0
+rx_unicast_bytes_ok: 0
+rx_multicast_bytes_ok: 0
+rx_broadcast_bytes_ok: 0
+rx_drop: 0
+rx_no_bufs: 0
+rx_errors: 0
+rx_rss: 0
+rx_crc_errors: 0
+rx_frames_64: 0
+rx_frames_127: 0
+rx_frames_255: 0
+rx_frames_511: 0
+rx_frames_1023: 0
+rx_frames_1518: 0
+rx_frames_to_max: 0
+tx_queue_[0]_frames_ok: 0
+tx_queue_[1]_frames_ok: 0
+tx_queue_[2]_frames_ok: 0
+tx_queue_[3]_frames_ok: 0
+tx_queue_[4]_frames_ok: 0
+tx_queue_[5]_frames_ok: 0
+tx_queue_[6]_frames_ok: 0
+tx_queue_[7]_frames_ok: 0
+rx_rss_queue_[0]_frames_ok: 0
+rx_rss_queue_[1]_frames_ok: 0
+rx_rss_queue_[2]_frames_ok: 0
+rx_rss_queue_[3]_frames_ok: 0
+rx_rss_queue_[4]_frames_ok: 0
+rx_rss_queue_[5]_frames_ok: 0
+rx_rss_queue_[6]_frames_ok: 0
+rx_rss_queue_[7]_frames_ok: 0

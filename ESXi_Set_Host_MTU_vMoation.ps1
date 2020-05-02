@@ -1,0 +1,1 @@
+﻿Get-VMHost | Get-VMHostNetworkAdapter | Where { $_.GetType().Name -eq "vmk3" } | Foreach { $_ | Set-VMHostNetworkAdapter -Mtu 9000 -Confirm:$false }
